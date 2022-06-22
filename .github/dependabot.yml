@@ -5,11 +5,11 @@
 
 version: 2
 updates:
-  - package-ecosystem: "github-actions" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: 'github-actions' # See documentation for possible values
+    directory: '/' # Location of package manifests
     schedule:
-      interval: "weekly"
-      day: "sunday"
+      interval: 'weekly'
+      day: 'sunday'
       time: '00:00'
       timezone: 'Europe/Brussels'
     open-pull-requests-limit: 99
@@ -18,11 +18,11 @@ updates:
     assignees:
       - 'Alekuso'
 
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: 'npm' # See documentation for possible values
+    directory: '/' # Location of package manifests
     schedule:
-      interval: "weekly"
-      day: "sunday"
+      interval: 'weekly'
+      day: 'sunday'
       time: '00:00'
       timezone: 'Europe/Brussels'
     open-pull-requests-limit: 99
