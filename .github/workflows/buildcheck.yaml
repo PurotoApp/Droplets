@@ -3,8 +3,8 @@ name: 'Build'
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
+#  pull_request:
+#    branches: [main]
 
 jobs:
   Build:
@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix: # use it on multiple nodejs versions
-        node-version: [16, 17, 18]
+        node-version: [16]
 
     steps:
       - uses: actions/checkout@v3
