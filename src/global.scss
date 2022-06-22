@@ -8,3 +8,13 @@ $alert: #f43f59;
 	background-color: $primary;
 	color: $text;
 }
+
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+}
