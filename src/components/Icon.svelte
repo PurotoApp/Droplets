@@ -1,6 +1,6 @@
 <script>
 	export let size;
-	export let stroke;
+	export let stroke = 'white';
 
 	switch (stroke) {
 		case 'white':
@@ -8,9 +8,6 @@
 			break;
 		case 'purple':
 			stroke = '#6D6BED';
-			break;
-		default:
-			stroke = '#ffffff';
 			break;
 	}
 </script>
