@@ -39,7 +39,7 @@
       {#if menuOpen}
         <div class="container">
           <div class="menu">
-            <a class="patreon" href="/#">Support Us</a> <!-- THIS NEEDS FIXES, IT DOESN'T WORK AS INTENDED -->
+            <a class="patreon" rel="noopener" target="_blank" href="/#">Support Us</a>
             <a class="join" href="/#">Apply</a>
           </div>
         </div>
@@ -132,21 +132,24 @@
         background-color: $secondary;
         border-radius: 0.5rem;
         padding: 0.5rem;
-        width: 50%;
+        width: 25%;
 
         .patreon {
-          margin-right: 5rem;
+          display: block;
           color: #FF5A96;
           font-weight: 600; // semibold
           font-size: 1rem;
-          text-decoration: none;
+          margin: 0.25rem 0 0.25rem 0;
+          padding: 0.25rem 0 0.25rem 0;
         }
 
         .join {
+          display: block;
           color: #878CFB;
           font-weight: 600; // semibold
           font-size: 1rem;
-          text-decoration: none;
+          margin: 0.25rem 0 0.25rem 0;
+          padding: 0.25rem 0 0.25rem 0;
         }
       }
     }
