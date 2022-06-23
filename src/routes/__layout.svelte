@@ -1,18 +1,18 @@
 <script>
-	import { onMount } from 'svelte';
-	import Loading from '../components/Loading.svelte';
+  import { onMount } from 'svelte';
+  import Loading from '../components/Loading.svelte';
 
-	let isLoading = true;
+  let isLoading = true;
 
-	onMount(() => {
-		isLoading = false;
-	});
+  onMount(() => {
+    isLoading = false;
+  });
 </script>
 
 {#if isLoading}
-	<Loading />
+  <Loading />
 {:else}
-	<slot />
+  <slot />
 {/if}
 
 <style lang="scss"></style>
