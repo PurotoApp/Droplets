@@ -1,9 +1,9 @@
 <script>
-  import Icon from '../components/icons/Icon.svelte';
-  import Twitter from '../components/icons/Twitter.svelte';
-  import Discord from '../components/icons/Discord.svelte';
+  import Icon from '@/icons/Icon.svelte';
+  import Twitter from '@/icons/Twitter.svelte';
+  import Discord from '@/icons/Discord.svelte';
 
-  let menuOpen = true;
+  let menuOpen = false;
 
   function toggleMenu() {
     menuOpen = !menuOpen;
