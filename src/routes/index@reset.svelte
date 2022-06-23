@@ -22,7 +22,8 @@
       <span>Puroto</span>
     </a>
     <div class="hamburger">
-      <svg on:click={toggleMenu}
+      <svg
+        on:click={toggleMenu}
         class="icon"
         width="24"
         height="24"
@@ -46,12 +47,8 @@
       {/if}
     </div>
     <div class="grouplink">
-      <a class="patreon" rel="noopener" target="_blank" href="/#">
-        Support Us
-      </a>
-      <a class="join" href="/#">
-        Apply
-      </a>
+      <a class="patreon" rel="noopener" target="_blank" href="/#"> Support Us </a>
+      <a class="join" href="/#"> Apply </a>
     </div>
   </header>
   <div class="body">
@@ -115,7 +112,7 @@
       }
 
       :global(span) {
-        color: #878CFB;
+        color: #878cfb;
         font-weight: 600; // semibold
         font-size: 1.75rem;
       }
@@ -136,7 +133,7 @@
 
         .patreon {
           display: block;
-          color: #FF5A96;
+          color: #ff5a96;
           font-weight: 600; // semibold
           font-size: 1rem;
           margin: 0.25rem 0 0.25rem 0;
@@ -145,7 +142,7 @@
 
         .join {
           display: block;
-          color: #878CFB;
+          color: #878cfb;
           font-weight: 600; // semibold
           font-size: 1rem;
           margin: 0.25rem 0 0.25rem 0;
@@ -168,7 +165,7 @@
     .intro-text {
       width: 70%;
       font-size: 1rem;
-      color: #8799FB;
+      color: #8799fb;
     }
 
     .ext-links {
@@ -176,10 +173,10 @@
       justify-content: space-between;
       width: 60%;
       margin-top: 4rem;
-      color: #9CABDF;
+      color: #9cabdf;
 
       .link {
-        color: #9CABDF;
+        color: #9cabdf;
         font-weight: 600; // semibold
         font-size: 1rem;
         display: flex;
@@ -195,17 +192,16 @@
           margin-left: 0.5rem;
         }
 
-
         .github {
-          color: #FFF;
+          color: #fff;
         }
 
         .twitter {
-          color: #1D9BF0;
+          color: #1d9bf0;
         }
 
         .discord {
-          color: #5865F2;
+          color: #5865f2;
         }
       }
     }
@@ -240,7 +236,7 @@
 
         .patreon {
           margin-right: 5rem;
-          color: #FF5A96;
+          color: #ff5a96;
           font-weight: 600; // semibold
           font-size: 1.5rem;
           text-decoration: none;
@@ -248,7 +244,7 @@
         }
 
         .join {
-          color: #878CFB;
+          color: #878cfb;
           font-weight: 600; // semibold
           font-size: 1.5rem;
           text-decoration: none;
