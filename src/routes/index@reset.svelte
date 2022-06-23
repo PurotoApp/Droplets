@@ -108,6 +108,7 @@
 			align-items: center;
 			text-decoration: none;
 			user-select: none;
+			padding: 0.5rem;
 
 			:global(svg) {
 				margin-right: 1rem;
@@ -240,6 +241,7 @@
 					font-weight: 600; // semibold
 					font-size: 1.5rem;
 					text-decoration: none;
+					padding: 1rem;
 				}
 
 				.join {
@@ -247,6 +249,7 @@
 					font-weight: 600; // semibold
 					font-size: 1.5rem;
 					text-decoration: none;
+					padding: 1rem;
 				}
 			}
 		}
