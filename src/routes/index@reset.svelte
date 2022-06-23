@@ -1,13 +1,13 @@
 <script>
-	import Icon from '../components/Icon.svelte';
-	import Twitter from '../components/Twitter.svelte';
-	import Discord from '../components/Discord.svelte';
+	import Icon from '../components/icons/Icon.svelte';
+	import Twitter from '../components/icons/Twitter.svelte';
+	import Discord from '../components/icons/Discord.svelte';
 
 	let menuOpen = true;
 
 	function toggleMenu() {
 		menuOpen = !menuOpen;
-	};
+	}
 </script>
 
 <svelte:head>
