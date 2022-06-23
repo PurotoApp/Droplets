@@ -15,7 +15,7 @@
   <meta name="description" content="We are building the fluffiest social network" />
 </svelte:head>
 
-<div class="landing">
+<main class="landing">
   <header class="head">
     <a class="logo" href="/">
       <Icon size="1.75rem" stroke="#878CFB" />
@@ -23,12 +23,12 @@
     </a>
     <div class="hamburger">
       <svg on:click={toggleMenu}
-           class="icon"
-           width="24"
-           height="24"
-           viewBox="0 0 32 27"
-           fill="none"
-           xmlns="http://www.w3.org/2000/svg"
+        class="icon"
+        width="24"
+        height="24"
+        viewBox="0 0 32 27"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <g fill="black">
           <path style="fill:#FFF;" d="M0 0H32V3H0V0Z" />
@@ -90,7 +90,7 @@
       </div>
     </div>
   </div>
-</div>
+</main>
 
 <style lang="scss">
   .landing {

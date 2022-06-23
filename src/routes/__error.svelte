@@ -14,10 +14,10 @@
   export let message;
 </script>
 
-<div class="errorHandler">
+<main class="errorHandler">
   <h1>{status}</h1>
   <p>{message}</p>
-</div>
+</main>
 
 <style lang="scss">
   .errorHandler {
