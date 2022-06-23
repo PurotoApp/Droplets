@@ -1,5 +1,5 @@
 <script context="module">
-  export function load({error, status}) {
+  export function load({ error, status }) {
     return {
       props: {
         status: status,
@@ -14,10 +14,10 @@
   export let message;
 </script>
 
-<div class="errorHandler">
+<main class="errorHandler">
   <h1>{status}</h1>
   <p>{message}</p>
-</div>
+</main>
 
 <style lang="scss">
   .errorHandler {

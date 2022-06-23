@@ -1,9 +1,9 @@
 <script>
-  import Icon from '../components/icons/Icon.svelte';
-  import Twitter from '../components/icons/Twitter.svelte';
-  import Discord from '../components/icons/Discord.svelte';
+  import Icon from '@/icons/Icon.svelte';
+  import Twitter from '@/icons/Twitter.svelte';
+  import Discord from '@/icons/Discord.svelte';
 
-  let menuOpen = true;
+  let menuOpen = false;
 
   function toggleMenu() {
     menuOpen = !menuOpen;
@@ -15,20 +15,21 @@
   <meta name="description" content="We are building the fluffiest social network" />
 </svelte:head>
 
-<div class="landing">
+<main class="landing">
   <header class="head">
     <a class="logo" href="/">
       <Icon size="1.75rem" stroke="#878CFB" />
       <span>Puroto</span>
     </a>
     <div class="hamburger">
-      <svg on:click={toggleMenu}
-           class="icon"
-           width="24"
-           height="24"
-           viewBox="0 0 32 27"
-           fill="none"
-           xmlns="http://www.w3.org/2000/svg"
+      <svg
+        on:click={toggleMenu}
+        class="icon"
+        width="24"
+        height="24"
+        viewBox="0 0 32 27"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <g fill="black">
           <path style="fill:#FFF;" d="M0 0H32V3H0V0Z" />
@@ -39,19 +40,15 @@
       {#if menuOpen}
         <div class="container">
           <div class="menu">
-            <a class="patreon" href="/#">Support Us</a> <!-- THIS NEEDS FIXES, IT DOESN'T WORK AS INTENDED -->
+            <a class="patreon" rel="noopener" target="_blank" href="/#">Support Us</a>
             <a class="join" href="/#">Apply</a>
           </div>
         </div>
       {/if}
     </div>
     <div class="grouplink">
-      <a class="patreon" rel="noopener" target="_blank" href="/#">
-        Support Us
-      </a>
-      <a class="join" href="/#">
-        Apply
-      </a>
+      <a class="patreon" rel="noopener" target="_blank" href="/#"> Support Us </a>
+      <a class="join" href="/#"> Apply </a>
     </div>
   </header>
   <div class="body">
@@ -90,7 +87,7 @@
       </div>
     </div>
   </div>
-</div>
+</main>
 
 <style lang="scss">
   .landing {
@@ -115,7 +112,7 @@
       }
 
       :global(span) {
-        color: #878CFB;
+        color: #878cfb;
         font-weight: 600; // semibold
         font-size: 1.75rem;
       }
@@ -132,21 +129,24 @@
         background-color: $secondary;
         border-radius: 0.5rem;
         padding: 0.5rem;
-        width: 50%;
+        width: 25%;
 
         .patreon {
-          margin-right: 5rem;
-          color: #FF5A96;
+          display: block;
+          color: #ff5a96;
           font-weight: 600; // semibold
           font-size: 1rem;
-          text-decoration: none;
+          margin: 0.25rem 0 0.25rem 0;
+          padding: 0.25rem 0 0.25rem 0;
         }
 
         .join {
-          color: #878CFB;
+          display: block;
+          color: #878cfb;
           font-weight: 600; // semibold
           font-size: 1rem;
-          text-decoration: none;
+          margin: 0.25rem 0 0.25rem 0;
+          padding: 0.25rem 0 0.25rem 0;
         }
       }
     }
@@ -165,7 +165,7 @@
     .intro-text {
       width: 70%;
       font-size: 1rem;
-      color: #8799FB;
+      color: #8799fb;
     }
 
     .ext-links {
@@ -173,10 +173,10 @@
       justify-content: space-between;
       width: 60%;
       margin-top: 4rem;
-      color: #9CABDF;
+      color: #9cabdf;
 
       .link {
-        color: #9CABDF;
+        color: #9cabdf;
         font-weight: 600; // semibold
         font-size: 1rem;
         display: flex;
@@ -192,17 +192,16 @@
           margin-left: 0.5rem;
         }
 
-
         .github {
-          color: #FFF;
+          color: #fff;
         }
 
         .twitter {
-          color: #1D9BF0;
+          color: #1d9bf0;
         }
 
         .discord {
-          color: #5865F2;
+          color: #5865f2;
         }
       }
     }
@@ -237,7 +236,7 @@
 
         .patreon {
           margin-right: 5rem;
-          color: #FF5A96;
+          color: #ff5a96;
           font-weight: 600; // semibold
           font-size: 1.5rem;
           text-decoration: none;
@@ -245,7 +244,7 @@
         }
 
         .join {
-          color: #878CFB;
+          color: #878cfb;
           font-weight: 600; // semibold
           font-size: 1.5rem;
           text-decoration: none;
