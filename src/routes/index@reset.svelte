@@ -1,5 +1,5 @@
 <script>
-  import Icon from '@/icons/Icon.svelte';
+  import Logo from '@/icons/Logo.svelte';
   import Twitter from '@/icons/Twitter.svelte';
   import Discord from '@/icons/Discord.svelte';
 
@@ -17,10 +17,7 @@
 
 <main class="landing">
   <header class="head">
-    <a class="logo" href="/">
-      <Icon size="1.75rem" stroke="#878CFB" />
-      <span>Puroto</span>
-    </a>
+    <Logo size="1.75" color="#878CFB"/>
     <div class="hamburger">
       <svg
         on:click={toggleMenu}
@@ -99,24 +96,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
-
-    .logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      user-select: none;
-      padding: 0.5rem;
-
-      :global(svg) {
-        margin-right: 1rem;
-      }
-
-      :global(span) {
-        color: #878cfb;
-        font-weight: 600; // semibold
-        font-size: 1.75rem;
-      }
-    }
 
     .hamburger {
       cursor: pointer;
@@ -214,17 +193,6 @@
 
     .head {
       padding: 0.5rem;
-
-      .logo {
-        :global(svg) {
-          margin-right: 1rem;
-        }
-
-        :global(span) {
-          font-weight: 600; // semibold
-          font-size: 1.75rem;
-        }
-      }
 
       .hamburger {
         display: none;

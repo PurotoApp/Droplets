@@ -1,5 +1,5 @@
 <script>
-  export let size;
+  export let size = "2rem";
   export let stroke = 'white';
 
   switch (stroke) {
@@ -13,6 +13,8 @@
 </script>
 
 <svg
+  class={$$props.class}
+  style={$$props.style}
   width={size}
   height={size}
   viewBox="0 0 1426 1406"
