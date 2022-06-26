@@ -17,7 +17,7 @@
 
 <main class="landing">
   <header class="head">
-    <Logo size="1.75" color="#878CFB"/>
+    <Logo size="1.75" color="#878CFB" url="/" />
     <div class="hamburger">
       <svg
         on:click={toggleMenu}
