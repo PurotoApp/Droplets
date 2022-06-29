@@ -118,8 +118,7 @@
     .btn {
       display: flex;
       font-size: 1.25rem;
-      color: #474058;
-      fill: #474058;
+      color: #8a80a3;
       float: right;
       font-weight: 600; // semibold
       padding: 0.5rem;
