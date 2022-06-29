@@ -1,12 +1,13 @@
 <script>
   import Logo from '@/icons/Logo.svelte';
+  import SearchBar from '@/SearchBar.svelte';
 </script>
 
 <header class={$$props.class}>
   <Logo size="1.75" />
   
   <div class="user-interaction">
-    <div class="element"/>
+    <SearchBar />
     <div class="element"/>
     <div class="element"/>
   </div>
@@ -31,9 +32,5 @@
     margin-left: 0.5rem;
     height: 2.5rem;
     width: 2.5rem;
-  }
-
-  .element:first-child {
-    width: 10rem;
   }
 </style>
