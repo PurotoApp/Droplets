@@ -4,6 +4,7 @@
 
 <svelte:head>
   <title>Puroto - Home</title>
+  <meta name="description" content="The home page of Puroto" />
 </svelte:head>
 
 
