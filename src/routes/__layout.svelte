@@ -86,17 +86,16 @@
       </main>
       <div class="right">
         <div class="blog-container">
-
         </div>
-        <div class="featuredArtists-container">
 
+        <div class="featuredArtists-container">
         </div>
       </div>
     </div>
 
     <!-- MOBILE -->
     <div class="screen">
-      <nav class="nav">
+      <nav class="nav fixed">
         <ul class="list">
           <li>
             <a class="btn" class:active={$page.routeId === 'home'} href="/home" aria-label="Home">
@@ -190,6 +189,10 @@
 
   :global(.avatar) {
     border-radius: 100%;
+  }
+
+  .fixed {
+    position: fixed;
   }
 
   @media (min-width: 768px) {
