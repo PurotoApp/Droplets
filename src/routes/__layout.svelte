@@ -13,12 +13,6 @@
 
   let isLoading = true;
 
-  $: path = $page.routeId;  // The usage of $: means that the variable is recalculated each time $page.routeId changes.
-  
-  if(typeof path === undefined) {
-    path = null;
-  }
-  
   onMount(() => {
     isLoading = false;
   });
@@ -31,19 +25,19 @@
     <div class="grid">
       <Header class="header" />
       <div class="left">
-        {#if typeof path === undefined}
-          {#if path.includes("user")}
+        {#if typeof $page.routeId === undefined}
+          {#if $page.routeId.includes("user")}
             <Avatar />
           {:else}
             <Avatar user={$user}/>
           {/if}
         {:else}
-          <Avatar />
+          <Avatar user={$user} />
         {/if}
         <nav class="nav">
           <ul>
             <li>
-              <a class="btn" class:active={path === 'home'} href="/home">
+              <a class="btn" class:active={$page.routeId === 'home'} href="/home">
                 <span>
                   Home
                 </span>
@@ -51,7 +45,7 @@
               </a>
             </li>
             <li>
-              <a class="btn" class:active={path === 'followings'} href="/followings">
+              <a class="btn" class:active={$page.routeId === 'followings'} href="/followings">
                 <span>
                   Following
                 </span>
@@ -59,7 +53,7 @@
               </a>
             </li>
             <li>
-              <a class="btn" class:active={path === 'messages'} href="/messages">
+              <a class="btn" class:active={$page.routeId === 'messages'} href="/messages">
                 <span>
                   Messages
                 </span>
@@ -67,7 +61,7 @@
               </a>
             </li>
             <li>
-              <a class="btn" class:active={path === 'liked'} href="/liked">
+              <a class="btn" class:active={$page.routeId === 'liked'} href="/liked">
                 <span>
                   Liked
                 </span>
