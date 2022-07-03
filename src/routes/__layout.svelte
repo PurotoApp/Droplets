@@ -22,6 +22,8 @@
   <Loading />
 {:else}
   <div class="container">
+    
+    <!-- DESKTOP -->
     <div class="grid">
       <Header class="header" />
       <div class="left">
@@ -34,10 +36,10 @@
         {:else}
           <Avatar user={$user} />
         {/if}
-        <nav class="nav">
+        <nav>
           <ul>
             <li>
-              <a class="btn" class:active={$page.routeId === 'home'} href="/home">
+              <a class="btn" class:active={$page.routeId === 'home'} href="/home" aria-label="Home">
                 <span>
                   Home
                 </span>
@@ -45,7 +47,7 @@
               </a>
             </li>
             <li>
-              <a class="btn" class:active={$page.routeId === 'followings'} href="/followings">
+              <a class="btn" class:active={$page.routeId === 'followings'} href="/followings" aria-label="Following">
                 <span>
                   Following
                 </span>
@@ -53,7 +55,7 @@
               </a>
             </li>
             <li>
-              <a class="btn" class:active={$page.routeId === 'messages'} href="/messages">
+              <a class="btn" class:active={$page.routeId === 'messages'} href="/messages" aria-label="Messages">
                 <span>
                   Messages
                 </span>
@@ -61,7 +63,7 @@
               </a>
             </li>
             <li>
-              <a class="btn" class:active={$page.routeId === 'liked'} href="/liked">
+              <a class="btn" class:active={$page.routeId === 'liked'} href="/liked" aria-label="Liked">
                 <span>
                   Liked
                 </span>
@@ -91,6 +93,48 @@
         </div>
       </div>
     </div>
+
+    <!-- MOBILE -->
+    <div class="screen">
+      <nav class="nav">
+        <ul class="list">
+          <li>
+            <a class="btn" class:active={$page.routeId === 'home'} href="/home" aria-label="Home">
+              <Home class="icon" />
+            </a>
+          </li>
+          <li>
+            <a class="btn" class:active={$page.routeId === 'followings'} href="/followings" aria-label="Following">
+              <Following class="icon" />
+            </a>
+          </li>
+          <li>
+            {#if typeof $page.routeId === undefined}
+              {#if $page.routeId.includes("user")}
+                <Avatar class="avatar" size="2.5rem" />
+              {:else}
+                <Avatar class="avatar" size="2.5rem" user={$user}/>
+              {/if}
+            {:else}
+              <Avatar class="avatar" size="2.5rem" user={$user} />
+            {/if}
+          </li>
+          <li>
+            <a class="btn" class:active={$page.routeId === 'messages'} href="/messages" aria-label="Messages">
+              <Messages class="icon" />
+            </a>
+          </li>
+          <li>
+            <a class="btn" class:active={$page.routeId === 'liked'} href="/liked" aria-label="Liked">
+              <Liked class="icon" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <main>
+        <slot />
+      </main>
+    </div>
   </div>
 {/if}
 
@@ -99,7 +143,54 @@
     margin: 1% 5% 0 5%;
   }
 
-  // MOBILE PART TO BE MADE
+  .grid {
+    display: none;
+  }
+
+  .nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    background-color: #26232C;
+  }
+
+  .list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+    padding: 0;
+    margin: 0 auto 0 auto;
+  }
+
+  .btn {
+    user-select: none;
+    transition: color 100ms linear;
+  }
+
+  .btn:hover {
+    color: $purple;
+  }
+
+  .btn:active {
+    color: $purple;
+  }
+
+  :global(.icon) {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  :global(.active) {
+    color: $purple !important;
+  }
+
+  :global(.avatar) {
+    border-radius: 100%;
+  }
 
   @media (min-width: 768px) {
     .container {
@@ -116,6 +207,10 @@
     :global(.header) {
       grid-column: 1 / 4;
       grid-row: 1;
+    }
+
+    .screen {
+      display: none;
     }
 
     .left {
@@ -147,10 +242,6 @@
       margin-left: 1rem;
       height: 1.4rem;
       width: 1.4rem;
-    }
-
-    :global(.active) {
-      color: $purple !important;
     }
 
     .blog-container {
