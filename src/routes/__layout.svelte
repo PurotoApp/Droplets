@@ -19,7 +19,9 @@
 </script>
 
 {#if isLoading}
-  <Loading />
+  <main>
+    <Loading />
+  </main>
 {:else}
   <div class="container">
     
