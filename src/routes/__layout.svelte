@@ -29,70 +29,74 @@
     <div class="grid">
       <Header class="header" />
       <div class="left">
-        {#if typeof $page.routeId === undefined}
-          {#if $page.routeId.includes("user")}
-            <Avatar />
+        <div class="fixed">
+          {#if typeof $page.routeId === undefined}
+            {#if $page.routeId.includes("user")}
+              <Avatar />
+            {:else}
+              <Avatar user={$user}/>
+            {/if}
           {:else}
-            <Avatar user={$user}/>
+            <Avatar user={$user} />
           {/if}
-        {:else}
-          <Avatar user={$user} />
-        {/if}
-        <nav>
-          <ul>
-            <li>
-              <a class="btn" class:active={$page.routeId === 'home'} href="/home" aria-label="Home">
-                <span>
-                  Home
-                </span>
-                <Home class="icon" />
-              </a>
-            </li>
-            <li>
-              <a class="btn" class:active={$page.routeId === 'followings'} href="/followings" aria-label="Following">
-                <span>
-                  Following
-                </span>
-                <Following class="icon" />
-              </a>
-            </li>
-            <li>
-              <a class="btn" class:active={$page.routeId === 'messages'} href="/messages" aria-label="Messages">
-                <span>
-                  Messages
-                </span>
-                <Messages class="icon" />
-              </a>
-            </li>
-            <li>
-              <a class="btn" class:active={$page.routeId === 'liked'} href="/liked" aria-label="Liked">
-                <span>
-                  Liked
-                </span>
-                <Liked class="icon" />
-              </a>
-            </li>
-            <li>
-              <div class="btn" style="cursor: pointer;">
-                <span>
-                  More
-                </span>
-                <More class="icon" />
-              </div>
-            </li>
-          </ul>
-        <nav>
+          <nav>
+            <ul>
+              <li>
+                <a class="btn" class:active={$page.routeId === 'home'} href="/home" aria-label="Home">
+                  <span>
+                    Home
+                  </span>
+                  <Home class="icon" />
+                </a>
+              </li>
+              <li>
+                <a class="btn" class:active={$page.routeId === 'followings'} href="/followings" aria-label="Following">
+                  <span>
+                    Following
+                  </span>
+                  <Following class="icon" />
+                </a>
+              </li>
+              <li>
+                <a class="btn" class:active={$page.routeId === 'messages'} href="/messages" aria-label="Messages">
+                  <span>
+                    Messages
+                  </span>
+                  <Messages class="icon" />
+                </a>
+              </li>
+              <li>
+                <a class="btn" class:active={$page.routeId === 'liked'} href="/liked" aria-label="Liked">
+                  <span>
+                    Liked
+                  </span>
+                  <Liked class="icon" />
+                </a>
+              </li>
+              <li>
+                <div class="btn" style="cursor: pointer;">
+                  <span>
+                    More
+                  </span>
+                  <More class="icon" />
+                </div>
+              </li>
+            </ul>
+          <nav>
+        </div>
       </div>
       <main>
         <slot />
       </main>
-      <div class="right">
-        <div class="blog-container">
-        </div>
+      <!-- <div class="right">
+        <div class="fixed">
+          <div class="blog-container">
+          </div>
 
-        <div class="featuredArtists-container">
+          <div class="featuredArtists-container">
+          </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- MOBILE -->
@@ -219,9 +223,20 @@
     }
 
     .left {
+      position: relative;
+      right: 12rem;
       margin-left: auto;
       margin-right: 0;
     }
+
+    // .right {
+    //   position: relative;
+    //   right: 13rem;
+    //   margin-left: auto;
+    //   margin-right: 0;
+    // }
+
+
 
     .btn {
       display: flex;
@@ -249,19 +264,24 @@
       width: 1.4rem;
     }
 
-    .blog-container {
-      width: 100%;
-      height: 14rem;
-      background-color: $secondary;
-      border-radius: 0.5rem;
-    }
+    // .blog-container {
+    //   width: 13rem;
+    //   height: 14rem;
+    //   background-color: $secondary;
+    //   border-radius: 0.5rem;
+    // }
 
-    .featuredArtists-container {
-      margin-top: 1rem;
-      width: 100%;
-      height: 5rem;
-      background-color: $secondary;
-      border-radius: 0.5rem;
+    // .featuredArtists-container {
+    //   margin-top: 1rem;
+    //   width: 13rem;
+    //   height: 5rem;
+    //   background-color: $secondary;
+    //   border-radius: 0.5rem;
+    // }
+
+    :global(main) {
+      grid-column: 2 / 3;
+      grid-row: 2;
     }
   }
 </style>
