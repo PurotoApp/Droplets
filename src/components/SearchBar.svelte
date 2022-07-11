@@ -56,6 +56,7 @@
   .searchBar input::placeholder {
     color: hsl(260, 11%, 30%);
     font-weight: 600; // semibold
+    user-select: none;
   }
 
   .searchBar input:focus {
