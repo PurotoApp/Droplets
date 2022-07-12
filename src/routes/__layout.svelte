@@ -1,7 +1,8 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, tick } from 'svelte';
   import { page } from '$app/stores';
   import { user } from '$lib/stores/user';
+  import { goto } from '$app/navigation';
   import Loading from '@/Loading.svelte';
   import Header from '@/Header.svelte';
   import Avatar from '@/users/Avatar.svelte'
@@ -13,9 +14,23 @@
 
   let isLoading = true;
 
+  $: {
+    renderAvatar($page.routeId);
+  }
+
   onMount(() => {
     isLoading = false;
   });
+
+  async function renderAvatar(routeId) {
+    await tick();
+    let profilePicture = document.getElementById("avatar");
+
+    if(!routeId.includes("user")) {
+      profilePicture.style.backgroundImage = `url(${$user.avatar})`;
+    }
+  }
+
 </script>
 
 {#if isLoading}
@@ -30,15 +45,9 @@
       <Header class="header" user={$user} />
       <div class="left">
         <div class="fixed">
-          {#if typeof $page.routeId === undefined}
-            {#if $page.routeId.includes("user")}
-              <Avatar />
-            {:else}
-              <Avatar user={$user}/>
-            {/if}
-          {:else}
-            <Avatar user={$user} />
-          {/if}
+          <div on:click={goto(`/user/${!$page.routeId.includes("user") ? $user.username : $page.params.username}`)}>
+            <Avatar />
+          </div>
           <nav>
             <ul>
               <li>
