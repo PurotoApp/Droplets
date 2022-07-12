@@ -12,8 +12,6 @@
       hasNotification: false
     }
   }
-
-  console.log(user)
 </script>
 
 <header class={$$props.class}>
