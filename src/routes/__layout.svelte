@@ -27,7 +27,7 @@
     
     <!-- DESKTOP -->
     <div class="grid">
-      <Header class="header" />
+      <Header class="header" user={$user} />
       <div class="left">
         <div class="fixed">
           {#if typeof $page.routeId === undefined}

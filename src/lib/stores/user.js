@@ -6,7 +6,8 @@ const userStore = JSON.parse(localStorage.getItem('user')) ||
     "name": null,
     "username": null,
     "avatar": null,
-    "banner": null
+    "banner": null,
+    "hasNotifications": false
   };
 
 export const user = writable(userStore);
