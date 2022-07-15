@@ -4,8 +4,11 @@
   // THIS HAS TO BE USED SINCE THE API ISN'T READY YET.
   import { faker } from '@faker-js/faker';
 
+  import { browser } from '$app/env';
   import { tick } from 'svelte';
   import { page } from '$app/stores';
+
+  import Flag from '@/icons/Flag.svelte';
 
   let user = {
     "id": faker.datatype.uuid(),
@@ -18,7 +21,9 @@
   }
 
   $: {
-    renderAvatar();
+    if(browser) {
+      renderAvatar()
+    };
   }
 
   async function renderAvatar() {
@@ -33,3 +38,51 @@
   <title>Puroto - {$page.params.username}</title>
   <meta name="description" content={user.bio} />
 </svelte:head>
+
+<div class="container">
+  <div class="top">
+    <h1 class="name">{user.name}</h1>
+    <p class="username">@{user.username}</p>
+    <p class="bio">{user.bio}</p>
+  </div>
+  <div class="right">
+  <button class="follow">Follow</button>
+  <button class="message">Message</button>
+  <button class="report">
+    <Flag />
+  </button>
+  </div>
+</div>
+
+<style lang="scss">
+
+  .name {
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .username {
+    margin: 0;;
+    color: hsl(0, 0%, 68%);
+  }
+
+  .bio {
+    margin-top: 0.5rem;
+  }
+
+  .right {
+    display: none;
+  }
+
+  @media (min-width: 768px){
+    .right {
+      display: block;
+      position: fixed;
+      left: 70%;
+      top: 5.1rem;
+      width: 14rem;
+    }
+  }
+</style>
