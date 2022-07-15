@@ -24,7 +24,6 @@
         <div class="notification" />
       {/if}
     </div> 
-    <div class="element"/>
   </div>
 </header>
 
@@ -41,7 +40,7 @@
     justify-content: space-between;
   }
 
-  .avatar, .element {
+  .avatar {
     background-color: $secondary;
     border-radius: 0.5rem;
     margin-left: 0.5rem;
