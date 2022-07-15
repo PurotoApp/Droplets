@@ -1,4 +1,5 @@
 <script>
+  import { browser } from '$app/env';
   import { onMount, tick } from 'svelte';
   import { page } from '$app/stores';
   import { user } from '$lib/stores/user';
@@ -13,29 +14,34 @@
   import More from '@/icons/More.svelte';
 
   let isLoading = true;
-
-  $: {
-    renderAvatar($page.routeId);
-  }
-
-  onMount(() => {
+  
+  onMount(async() => {
     isLoading = false;
   });
+  
+  
+  $: {
+    if(browser) {
+      renderAvatar($page.routeId)
+    };
+  }
 
   async function renderAvatar(routeId) {
     await tick();
     let profilePicture = document.getElementById("avatar");
-
+    
     if(!routeId.includes("user")) {
       profilePicture.style.backgroundImage = `url(${$user.avatar})`;
     }
   }
-
 </script>
 
 {#if isLoading}
   <main>
     <Loading />
+    <div class="invisible">
+      <slot />
+    </div>    
   </main>
 {:else}
   <div class="container">
@@ -123,15 +129,7 @@
             </a>
           </li>
           <li>
-            {#if typeof $page.routeId === undefined}
-              {#if $page.routeId.includes("user")}
-                <Avatar class="avatar" size="2.5rem" />
-              {:else}
-                <Avatar class="avatar" size="2.5rem" user={$user}/>
-              {/if}
-            {:else}
-              <Avatar class="avatar" size="2.5rem" user={$user} />
-            {/if}
+            <Avatar size="2.5rem" />
           </li>
           <li>
             <a class="btn" class:active={$page.routeId === 'messages'} href="/messages" aria-label="Messages">
@@ -153,6 +151,10 @@
 {/if}
 
 <style lang="scss">
+  .invisible {
+    display: none;
+  }
+
   .container {
     margin: 1% 5% 0 5%;
   }

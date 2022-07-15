@@ -7,10 +7,6 @@
     <Icon size="6rem" stroke="purple" />
   </div>
 </div>
-<div class="invisible">
-  <slot />
-</div>
-
 <style lang="scss">
   .bg {
     position: absolute;
@@ -31,9 +27,5 @@
     height: 100%;
     margin: 0;
     animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .invisible {
-    opacity: 0;
   }
 </style>
