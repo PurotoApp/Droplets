@@ -2,7 +2,7 @@
   // FAKERJS IS A VERY LARGE PACKAGE AND SHOULDN'T BE DEPLOYED TO PRODUCTION, ONLY FOR TESTING PURPOSES.
   // IF THE /user/[username] PAGE TAKES TIME TO LOAD, IT'S A NORMAL BEHAVIOR BECAUSE OF THE SIZE OF FAKERJS.
   // THIS HAS TO BE USED SINCE THE API ISN'T READY YET.
-  import { faker } from 'https://cdn.skypack.dev/@faker-js/faker';
+  import { faker } from '@faker-js/faker';
 
   import { tick } from 'svelte';
   import { page } from '$app/stores';
