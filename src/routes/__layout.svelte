@@ -12,6 +12,7 @@
   import Messages from '@/icons/Messages.svelte';
   import Liked from '@/icons/Liked.svelte';
   import More from '@/icons/More.svelte';
+  import Default from '@/layout/interactionPanel/Default.svelte';
 
   let isLoading = true;
   
@@ -103,15 +104,11 @@
       <main>
         <slot />
       </main>
-      <!-- <div class="right">
-        <div class="fixed">
-          <div class="blog-container">
-          </div>
-
-          <div class="featuredArtists-container">
-          </div>
+      <div class="right">
+        <div id="interactionPanel" class="fixed">
+          <Default />
         </div>
-      </div> -->
+      </div>
     </div>
 
     <!-- MOBILE -->
@@ -240,12 +237,12 @@
       margin-right: 0;
     }
 
-    // .right {
-    //   position: relative;
-    //   right: 13rem;
-    //   margin-left: auto;
-    //   margin-right: 0;
-    // }
+    .right {
+      position: relative;
+      max-width: 14rem;
+      margin-left: 0;
+      margin-right: auto;
+    }
 
 
 
@@ -274,21 +271,6 @@
       height: 1.4rem;
       width: 1.4rem;
     }
-
-    // .blog-container {
-    //   width: 13rem;
-    //   height: 14rem;
-    //   background-color: $secondary;
-    //   border-radius: 0.5rem;
-    // }
-
-    // .featuredArtists-container {
-    //   margin-top: 1rem;
-    //   width: 13rem;
-    //   height: 5rem;
-    //   background-color: $secondary;
-    //   border-radius: 0.5rem;
-    // }
 
     :global(main) {
       grid-column: 2 / 3;
