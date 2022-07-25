@@ -24,7 +24,7 @@
   .featuredArtists-container {
     margin-top: 1rem;
     width: 17rem;
-    height: 5rem;
+    height: 8rem;
     background-color: $secondary;
     border-radius: 0.5rem;
     transition: width 0.2s ease-in-out;
@@ -41,11 +41,11 @@
 
   @media (max-width: 940px) {
     .blog-container {
-    width: 14rem;
-  }
+      width: 14rem;
+    }
 
-  .featuredArtists-container {
-    width: 14rem;
-  }
+    .featuredArtists-container {
+      width: 14rem;
+    }
   }
 </style>
