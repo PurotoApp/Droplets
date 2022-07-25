@@ -5,10 +5,10 @@
   import { faker } from '@faker-js/faker';
 
   import { browser } from '$app/env';
-  import { tick } from 'svelte';
+  import { onMount, tick } from 'svelte';
   import { page } from '$app/stores';
 
-  import Flag from '@/icons/Flag.svelte';
+  import Profile from '@/layout/interactionPanel/Profile.svelte';
 
   let user = {
     "id": faker.datatype.uuid(),
@@ -17,7 +17,10 @@
     "bio": `${faker.name.jobArea()}: ${faker.name.jobTitle()} / ${faker.name.gender()} / Age of ${faker.datatype.number({min: 13, max: 99})}`,
     "avatar": faker.image.avatar(),
     "banner": null,
-    "hasNotifications": false
+    "data": {
+      "following:": faker.datatype.number(),
+      "followers:": faker.datatype.number(),
+    }
   }
 
   $: {
@@ -31,7 +34,6 @@
     let profilePicture = document.getElementById("avatar");
     profilePicture.style.backgroundImage = `url(${user.avatar})`;
   }
-
 </script>
 
 <svelte:head>
@@ -46,16 +48,13 @@
     <p class="bio">{user.bio}</p>
   </div>
   <div class="right">
-  <button class="follow">Follow</button>
-  <button class="message">Message</button>
-  <button class="report">
-    <Flag />
-  </button>
-  </div>
+    <div id="profileInteractionPanel" class="fixed">
+      <Profile user={user} />
+    </div>
+</div>
 </div>
 
 <style lang="scss">
-
   .name {
     margin: 0;
     color: #FFFFFF;
@@ -82,7 +81,7 @@
       position: fixed;
       left: 70%;
       top: 5.1rem;
-      width: 14rem;
+      width: 17rem;
     }
   }
 </style>

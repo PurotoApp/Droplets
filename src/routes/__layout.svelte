@@ -104,11 +104,13 @@
       <main>
         <slot />
       </main>
+      {#if !$page.routeId.includes('user')}
       <div class="right">
         <div id="interactionPanel" class="fixed">
           <Default />
         </div>
       </div>
+      {/if}
     </div>
 
     <!-- MOBILE -->
@@ -148,6 +150,7 @@
 {/if}
 
 <style lang="scss">
+
   .invisible {
     display: none;
   }
