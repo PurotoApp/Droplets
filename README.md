@@ -1,4 +1,4 @@
-<img src=".github/media/droplets.png" alt="Readme logo"/>
+<img src=".github/media/Droplets.png" alt="Readme logo"/>
 
 Droplets is a web application that allows you to interact with the API of Puroto. This is the front-end of [Puroto](https://puroto.net).
 
