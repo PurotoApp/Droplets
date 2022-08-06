@@ -18,8 +18,9 @@
     "avatar": faker.image.avatar(),
     "banner": null,
     "data": {
-      "following:": faker.datatype.number(),
-      "followers:": faker.datatype.number(),
+      "isUserFollowing": false,
+      "following": faker.datatype.number(),
+      "followers": faker.datatype.number(),
     }
   }
 

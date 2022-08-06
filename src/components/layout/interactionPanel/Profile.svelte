@@ -2,14 +2,27 @@
   import Flag from '@/icons/Flag.svelte';
 
   export let user;
+
+  function follow() {
+    user.data.isUserFollowing = !user.data.isUserFollowing;
+  }
+
 </script>
 
 <div class="interact">
-  <div class="btn">
+  {#if !user.data.isUserFollowing}
+  <div class="btn follow" on:click={follow}>
     <span>
       Follow
     </span>
   </div>
+  {:else}
+  <div class="btn following" on:click={follow}>
+    <span>
+      Following
+    </span>
+  </div>
+  {/if}
   <div class="btn">
     <span>
       Message
@@ -24,11 +37,11 @@
 <div>
   <div>
     <h4 class="followText">Following</h4>
-    <p class="followVal">{user.data["following:"]}</p>
+    <p class="followVal">{user.data.following}</p>
   </div>
   <div>
     <h4 class="followText">Followers</h4>
-    <p class="followVal">{user.data["followers:"]}</p>
+    <p class="followVal">{user.data.followers}</p>
   </div>
 </div>
 <style lang="scss">
@@ -49,6 +62,10 @@
     user-select: none;
   }
 
+  .btn:global(.following) {
+    padding: 0.5rem 0.7rem;
+  }
+
   .followText {
     font-size: 1.5rem;
     margin: 0;
@@ -62,11 +79,15 @@
 
   @media (max-width: 940px) {
     .interact {
-      width: 70%;
+      width: 83%;
     }
 
     .btn {
-      padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+      padding: 0.5rem 0.9rem;
+    }
+    
+    .btn:global(.following) {
+      padding: 0.5rem 0.3rem;
     }
   }
 </style>
