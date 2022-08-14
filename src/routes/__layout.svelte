@@ -6,7 +6,7 @@
   import { goto } from '$app/navigation';
   import Loading from '@/Loading.svelte';
   import Header from '@/Header.svelte';
-  import Avatar from '@/users/Avatar.svelte'
+  import Avatar from '@/users/Avatar.svelte';
   import Home from '@/icons/Home.svelte';
   import Following from '@/icons/Following.svelte';
   import Messages from '@/icons/Messages.svelte';
@@ -15,23 +15,22 @@
   import Default from '@/layout/interactionPanel/Default.svelte';
 
   let isLoading = true;
-  
-  onMount(async() => {
+
+  onMount(async () => {
     isLoading = false;
   });
-  
-  
+
   $: {
-    if(browser) {
-      renderAvatar($page.routeId)
-    };
+    if (browser) {
+      renderAvatar($page.routeId);
+    }
   }
 
   async function renderAvatar(routeId) {
     await tick();
-    let profilePicture = document.getElementById("avatar");
-    
-    if(!routeId.includes("user")) {
+    let profilePicture = document.getElementById('avatar');
+
+    if (!routeId.includes('user')) {
       profilePicture.style.backgroundImage = `url(${$user.avatar})`;
     }
   }
@@ -42,74 +41,88 @@
     <Loading />
     <div class="invisible">
       <slot />
-    </div>    
+    </div>
   </main>
 {:else}
   <div class="container">
-    
     <!-- DESKTOP -->
     <div class="grid">
       <Header class="header" user={$user} />
       <div class="left">
         <div class="fixed">
-          <div on:click={goto(`/user/${!$page.routeId.includes("user") ? $user.username : $page.params.username}`)}>
+          <div
+            on:click={goto(
+              `/user/${!$page.routeId.includes('user') ? $user.username : $page.params.username}`
+            )}
+          >
             <Avatar />
           </div>
           <nav>
             <ul>
               <li>
-                <a class="btn" class:active={$page.routeId === 'home'} href="/home" aria-label="Home">
-                  <span>
-                    Home
-                  </span>
+                <a
+                  class="btn"
+                  class:active={$page.routeId === 'home'}
+                  href="/home"
+                  aria-label="Home"
+                >
+                  <span> Home </span>
                   <Home class="icon" />
                 </a>
               </li>
               <li>
-                <a class="btn" class:active={$page.routeId === 'followings'} href="/followings" aria-label="Following">
-                  <span>
-                    Following
-                  </span>
+                <a
+                  class="btn"
+                  class:active={$page.routeId === 'followings'}
+                  href="/followings"
+                  aria-label="Following"
+                >
+                  <span> Following </span>
                   <Following class="icon" />
                 </a>
               </li>
               <li>
-                <a class="btn" class:active={$page.routeId === 'messages'} href="/messages" aria-label="Messages">
-                  <span>
-                    Messages
-                  </span>
+                <a
+                  class="btn"
+                  class:active={$page.routeId === 'messages'}
+                  href="/messages"
+                  aria-label="Messages"
+                >
+                  <span> Messages </span>
                   <Messages class="icon" />
                 </a>
               </li>
               <li>
-                <a class="btn" class:active={$page.routeId === 'liked'} href="/liked" aria-label="Liked">
-                  <span>
-                    Liked
-                  </span>
+                <a
+                  class="btn"
+                  class:active={$page.routeId === 'liked'}
+                  href="/liked"
+                  aria-label="Liked"
+                >
+                  <span> Liked </span>
                   <Liked class="icon" />
                 </a>
               </li>
               <li>
                 <div class="btn" style="cursor: pointer;">
-                  <span>
-                    More
-                  </span>
+                  <span> More </span>
                   <More class="icon" />
                 </div>
               </li>
             </ul>
-          <nav>
+            <nav />
+          </nav>
         </div>
       </div>
       <main>
         <slot />
       </main>
       {#if !$page.routeId.includes('user')}
-      <div class="right">
-        <div id="interactionPanel" class="fixed">
-          <Default />
+        <div class="right">
+          <div id="interactionPanel" class="fixed">
+            <Default />
+          </div>
         </div>
-      </div>
       {/if}
     </div>
 
@@ -123,7 +136,12 @@
             </a>
           </li>
           <li>
-            <a class="btn" class:active={$page.routeId === 'followings'} href="/followings" aria-label="Following">
+            <a
+              class="btn"
+              class:active={$page.routeId === 'followings'}
+              href="/followings"
+              aria-label="Following"
+            >
               <Following class="icon" />
             </a>
           </li>
@@ -131,12 +149,22 @@
             <Avatar size="2.5rem" />
           </li>
           <li>
-            <a class="btn" class:active={$page.routeId === 'messages'} href="/messages" aria-label="Messages">
+            <a
+              class="btn"
+              class:active={$page.routeId === 'messages'}
+              href="/messages"
+              aria-label="Messages"
+            >
               <Messages class="icon" />
             </a>
           </li>
           <li>
-            <a class="btn" class:active={$page.routeId === 'liked'} href="/liked" aria-label="Liked">
+            <a
+              class="btn"
+              class:active={$page.routeId === 'liked'}
+              href="/liked"
+              aria-label="Liked"
+            >
               <Liked class="icon" />
             </a>
           </li>
@@ -150,7 +178,6 @@
 {/if}
 
 <style lang="scss">
-
   .invisible {
     display: none;
   }
@@ -169,7 +196,7 @@
     left: 0;
     width: 100%;
     height: 4rem;
-    background-color: #26232C;
+    background-color: #26232c;
   }
 
   .list {
@@ -216,7 +243,7 @@
     .container {
       margin: 1% 12% 0 12%;
     }
-    
+
     .grid {
       display: grid;
       grid-template-columns: 1fr 2.25fr 1fr;
@@ -246,8 +273,6 @@
       margin-left: 0;
       margin-right: auto;
     }
-
-
 
     .btn {
       display: flex;

@@ -6,27 +6,20 @@
   function follow() {
     user.data.isUserFollowing = !user.data.isUserFollowing;
   }
-
 </script>
 
 <div class="interact">
   {#if !user.data.isUserFollowing}
-  <div class="btn follow" on:click={follow}>
-    <span>
-      Follow
-    </span>
-  </div>
+    <div class="btn follow" on:click={follow}>
+      <span> Follow </span>
+    </div>
   {:else}
-  <div class="btn following" on:click={follow}>
-    <span>
-      Following
-    </span>
-  </div>
+    <div class="btn following" on:click={follow}>
+      <span> Following </span>
+    </div>
   {/if}
   <div class="btn">
-    <span>
-      Message
-    </span>
+    <span> Message </span>
   </div>
   <div class="btn">
     <span>
@@ -44,6 +37,7 @@
     <p class="followVal">{user.data.followers}</p>
   </div>
 </div>
+
 <style lang="scss">
   .interact {
     display: flex;
@@ -85,7 +79,7 @@
     .btn {
       padding: 0.5rem 0.9rem;
     }
-    
+
     .btn:global(.following) {
       padding: 0.5rem 0.3rem;
     }

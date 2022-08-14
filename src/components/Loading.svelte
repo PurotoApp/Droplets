@@ -7,6 +7,7 @@
     <Icon size="6rem" stroke="purple" />
   </div>
 </div>
+
 <style lang="scss">
   .bg {
     position: absolute;

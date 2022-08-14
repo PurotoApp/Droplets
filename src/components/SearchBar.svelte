@@ -1,6 +1,6 @@
 <script>
   import MagGlass from '@/icons/MagGlass.svelte';
-  import { formToData } from '$lib/formToData'; 
+  import { formToData } from '$lib/formToData';
   function search(data) {
     data = formToData(data);
 
@@ -11,14 +11,14 @@
 <form class="searchBar" on:submit|preventDefault={search}>
   <label class="searchBar">
     <MagGlass class="magGlass" />
-      <input
-        name="search"
-        type="text"
-        spellcheck="false"
-        autocorrect="off"
-        autocomplete="off"
-        placeholder="Search"
-      />
+    <input
+      name="search"
+      type="text"
+      spellcheck="false"
+      autocorrect="off"
+      autocomplete="off"
+      placeholder="Search"
+    />
   </label>
 </form>
 
@@ -40,7 +40,6 @@
   .searchBar:focus-within {
     width: 18rem;
   }
-
 
   .searchBar input {
     background-color: transparent;
