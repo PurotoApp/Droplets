@@ -1,5 +1,5 @@
 <script>
-  export let size = "2rem";
+  export let size = '2rem';
   export let stroke = 'white';
 
   switch (stroke) {

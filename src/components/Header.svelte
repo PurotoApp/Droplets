@@ -5,25 +5,31 @@
 
   export let user;
 
-  if(user == null) {
+  if (user == null) {
     user = {
       username: null,
       avatar: null,
       hasNotification: false
-    }
+    };
   }
 </script>
 
 <header class={$$props.class}>
   <Logo size="1.75" />
-  
+
   <div class="user-interaction">
     <SearchBar />
-    <div on:click={()=>{goto(`/user/${user.username}`)}} class="avatar" style:background-image={user == null ? "" : `url(${user.avatar})`}>
+    <div
+      on:click={() => {
+        goto(`/user/${user.username}`);
+      }}
+      class="avatar"
+      style:background-image={user == null ? '' : `url(${user.avatar})`}
+    >
       {#if user.hasNotification}
         <div class="notification" />
       {/if}
-    </div> 
+    </div>
   </div>
 </header>
 
@@ -33,7 +39,7 @@
     align-items: center;
     justify-content: space-between;
   }
-  
+
   .user-interaction {
     display: flex;
     align-items: center;
@@ -55,7 +61,8 @@
     cursor: pointer;
   }
 
-  .notification, .blink {
+  .notification,
+  .blink {
     width: 1rem;
     height: 1rem;
     background-color: $red;

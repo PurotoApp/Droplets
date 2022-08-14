@@ -1,15 +1,11 @@
 <div class="blog-container">
   <h4 class="title">Latest from Puroto</h4>
-  <div>
-    Soon
-  </div>
+  <div>Soon</div>
 </div>
 
 <div class="featuredArtists-container">
   <h4 class="title">Featured Artist</h4>
-  <div>
-    Soon
-  </div> 
+  <div>Soon</div>
 </div>
 
 <style lang="scss">

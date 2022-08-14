@@ -3,8 +3,8 @@ export function formToData(form) {
 
   const data = {};
   for (const field of formData) {
-      const [key, value] = field;
-      data[key] = value;
+    const [key, value] = field;
+    data[key] = value;
   }
 
   return data;

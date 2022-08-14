@@ -11,28 +11,30 @@
   import Profile from '@/layout/interactionPanel/Profile.svelte';
 
   let user = {
-    "id": faker.datatype.uuid(),
-    "name": faker.name.firstName(),
-    "username": $page.params.username,
-    "bio": `${faker.name.jobArea()}: ${faker.name.jobTitle()} / ${faker.name.gender()} / Age of ${faker.datatype.number({min: 13, max: 99})}`,
-    "avatar": faker.image.avatar(),
-    "banner": null,
-    "data": {
-      "isUserFollowing": false,
-      "following": faker.datatype.number(),
-      "followers": faker.datatype.number(),
+    id: faker.datatype.uuid(),
+    name: faker.name.firstName(),
+    username: $page.params.username,
+    bio: `${faker.name.jobArea()}: ${faker.name.jobTitle()} / ${faker.name.gender()} / Age of ${faker.datatype.number(
+      { min: 13, max: 99 }
+    )}`,
+    avatar: faker.image.avatar(),
+    banner: null,
+    data: {
+      isUserFollowing: false,
+      following: faker.datatype.number(),
+      followers: faker.datatype.number()
     }
-  }
+  };
 
   $: {
-    if(browser) {
-      renderAvatar()
-    };
+    if (browser) {
+      renderAvatar();
+    }
   }
 
   async function renderAvatar() {
     await tick();
-    let profilePicture = document.getElementById("avatar");
+    let profilePicture = document.getElementById('avatar');
     profilePicture.style.backgroundImage = `url(${user.avatar})`;
   }
 </script>
@@ -50,21 +52,21 @@
   </div>
   <div class="right">
     <div id="profileInteractionPanel" class="fixed">
-      <Profile user={user} />
+      <Profile {user} />
     </div>
-</div>
+  </div>
 </div>
 
 <style lang="scss">
   .name {
     margin: 0;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 2rem;
     font-weight: bold;
   }
 
   .username {
-    margin: 0;;
+    margin: 0;
     color: hsl(0, 0%, 68%);
   }
 
@@ -76,7 +78,7 @@
     display: none;
   }
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     .right {
       display: block;
       position: fixed;
