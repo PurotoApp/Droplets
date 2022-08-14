@@ -5,7 +5,7 @@
   import { faker } from '@faker-js/faker';
 
   import { browser } from '$app/env';
-  import { onMount, tick } from 'svelte';
+  import { tick } from 'svelte';
   import { page } from '$app/stores';
 
   import Profile from '@/layout/interactionPanel/Profile.svelte';

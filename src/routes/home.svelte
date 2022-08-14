@@ -1,7 +1,3 @@
-<script>
-  import Logo from '@/icons/Logo.svelte';
-</script>
-
 <svelte:head>
   <title>Puroto - Home</title>
   <meta name="description" content="The home page of Puroto" />
