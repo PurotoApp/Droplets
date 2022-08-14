@@ -10,7 +10,7 @@
     "format": "prettier --write --plugin-search-dir=. ."
   },
   "devDependencies": {
-    "@faker-js/faker": "^7.3.0",
+    "@faker-js/faker": "^7.4.0",
     "@sveltejs/adapter-static": "^1.0.0-next.38",
     "@sveltejs/kit": "^1.0.0-next.398",
     "eslint": "^8.21.0",
