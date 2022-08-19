@@ -38,4 +38,4 @@ We highly appreciate all kinds of contributions to Droplets. For learning more a
 
 ###### Made and maintained with ❤ by PurotoApp and its community.
 
-###### Copyright (c) 2022 PurotoApp under the GPLv3 license.
+###### Copyright (c) 2022 PurotoApp under the AGPLv3 license.
